@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clientes</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+
+  <nav>
+    <h2>GLOBDE</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="citas.html">Citas</a></li>
+      <li><a href="catalogo.html">Catalogo</a></li>
+      <button onclick="logout()">Cerrar sesion</button>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Clientes</h1>
+
+    <input type="text" id="nombre" placeholder="Nombre completo">
+    <input type="number" id="telefono" placeholder="Telefono" inputmode="numeric">
+    <input type="email" id="correo" placeholder="Correo">
+    <button onclick="agregarCliente()">Agregar</button>
+    <ul id="listaClientes"></ul>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/clientes.js"></script>
+</body>
+</html>

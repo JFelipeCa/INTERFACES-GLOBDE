@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Citas</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+
+  <nav>
+    <h2>GLOBDE</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="citas.html">Citas</a></li>
+      <li><a href="catalogo.html">Catalogo</a></li>
+      <button onclick="logout()">Cerrar sesion</button>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Citas</h1>
+
+    <select id="cliente">
+      <option value="">Selecciona un cliente</option>
+    </select>
+
+    <select id="barbero">
+      <option value="">Selecciona un barbero</option>
+    </select>
+
+    <select id="servicio">
+      <option value="">Selecciona un servicio</option>
+    </select>
+
+    <input type="date" id="fecha">
+    <input type="time" id="hora">
+
+    <select id="estado">
+      <option value="pendiente">Pendiente</option>
+      <option value="confirmada">Confirmada</option>
+      <option value="cancelada">Cancelada</option>
+      <option value="completada">Completada</option>
+      <option value="no asistio">No asistio</option>
+    </select>
+
+    <textarea id="observaciones" placeholder="Observaciones"></textarea>
+
+    <button onclick="agendarCita()">Agendar</button>
+
+    <ul id="listaCitas"></ul>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/citas.js"></script>
+</body>
+</html>

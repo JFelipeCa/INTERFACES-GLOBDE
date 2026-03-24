@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Servicios</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+
+  <nav>
+    <h2>GLOBDE</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="citas.html">Citas</a></li>
+      <li><a href="catalogo.html">Catalogo</a></li>
+      <button onclick="logout()">Cerrar sesion</button>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Servicios</h1>
+
+    <input type="text" id="nombreServicio" placeholder="Nombre del servicio">
+    <textarea id="descripcionServicio" placeholder="Descripcion"></textarea>
+    <input type="number" id="precioServicio" placeholder="Precio">
+    <input type="number" id="duracionServicio" placeholder="Duracion en minutos">
+
+    <select id="corteServicio">
+      <option value="">Selecciona un corte asociado</option>
+    </select>
+
+    <button onclick="agregarServicio()">Agregar servicio</button>
+
+    <ul id="listaServicios"></ul>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

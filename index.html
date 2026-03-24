@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GLOBDE</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+<script>
+  if (!localStorage.getItem("usuario")) {
+    window.location.href = "login.html";
+  }
+
+</script>
+  <nav>
+    <h2>GLOBDE</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="citas.html">Citas</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <button onclick="logout()">Cerrar sesión</button>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Bienvenido a GLOBDE</h1>
+    <p>Gestiona clientes, citas y servicios fácilmente.</p>
+  </div>
+
+  <script src="js/globde.js"></script>
+</body>
+</html>
