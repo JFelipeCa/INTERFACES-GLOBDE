@@ -6,53 +6,99 @@
   <link rel="stylesheet" href="css/globde.css">
 </head>
 <body>
+  <nav data-nav></nav>
 
-  <nav>
-    <h2>GLOBDE</h2>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="citas.html">Citas</a></li>
-      <li><a href="catalogo.html">Catalogo</a></li>
-      <button onclick="logout()">Cerrar sesion</button>
-    </ul>
-  </nav>
+  <main class="container page-shell">
+    <section class="page-heading">
+      <span class="eyebrow">Agenda</span>
+      <h1>Crear y editar citas</h1>
+      <p>El administrador puede registrar nuevas reservas o editar las existentes desde el mismo formulario.</p>
+    </section>
 
-  <div class="container">
-    <h1>Citas</h1>
+    <article class="panel-card">
+      <div class="panel-title">
+        <div>
+          <h2 id="tituloFormularioCita">Nueva cita</h2>
+          <p id="descripcionFormularioCita">Completa los datos para registrar una cita.</p>
+        </div>
+      </div>
 
-    <select id="cliente">
-      <option value="">Selecciona un cliente</option>
-    </select>
+      <form class="form-agendar" onsubmit="return false;">
+        <input type="hidden" id="citaEditandoId">
 
-    <select id="barbero">
-      <option value="">Selecciona un barbero</option>
-    </select>
+        <div class="form-group">
+          <label>Cliente</label>
+          <select id="cliente"></select>
+        </div>
 
-    <select id="servicio">
-      <option value="">Selecciona un servicio</option>
-    </select>
+        <div class="form-group">
+          <label>Barbero</label>
+          <select id="barbero"></select>
+        </div>
 
-    <input type="date" id="fecha">
-    <input type="time" id="hora">
+        <div class="form-group full-width">
+          <label>Servicios</label>
+          <div id="serviciosCitaAdmin" class="checkbox-grid"></div>
+        </div>
 
-    <select id="estado">
-      <option value="pendiente">Pendiente</option>
-      <option value="confirmada">Confirmada</option>
-      <option value="cancelada">Cancelada</option>
-      <option value="completada">Completada</option>
-      <option value="no asistio">No asistio</option>
-    </select>
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date" id="fecha">
+        </div>
 
-    <textarea id="observaciones" placeholder="Observaciones"></textarea>
+        <div class="form-group">
+          <label>Hora</label>
+          <input type="time" id="hora">
+        </div>
 
-    <button onclick="agendarCita()">Agendar</button>
+        <div class="form-group">
+          <label>Estado</label>
+          <select id="estado">
+            <option value="pendiente">Pendiente</option>
+            <option value="confirmada">Confirmada</option>
+            <option value="cancelada">Cancelada</option>
+            <option value="completada">Completada</option>
+            <option value="no asistio">No asistio</option>
+          </select>
+        </div>
 
-    <ul id="listaCitas"></ul>
-  </div>
+        <div class="form-group full-width">
+          <label>Observaciones</label>
+          <textarea id="observaciones" placeholder="Indicaciones internas o preferencias del cliente"></textarea>
+        </div>
+
+        <div id="resumenCitaAdmin" class="resumen-seleccion full-width">
+          <strong>Selecciona uno o varios servicios.</strong>
+        </div>
+
+        <div class="item-actions full-width">
+          <button type="button" onclick="guardarCitaAdmin()">Guardar cita</button>
+          <button type="button" class="btn-ghost hidden" id="btnCancelarEdicion" onclick="cancelarEdicionCita()">Cancelar edicion</button>
+        </div>
+
+        <p id="mensajeCitaAdmin"></p>
+      </form>
+    </article>
+
+    <section class="panel-shell">
+      <div class="panel-title">
+        <div>
+          <h2>Citas registradas</h2>
+          <p>Selecciona editar para cargar una cita en el formulario.</p>
+        </div>
+      </div>
+      <ul id="listaCitas"></ul>
+    </section>
+  </main>
 
   <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/globde.js"></script>
+  <script>
+    if (protegerRuta("admin")) {
+      construirMenu();
+    }
+  </script>
   <script src="js/citas.js"></script>
 </body>
 </html>

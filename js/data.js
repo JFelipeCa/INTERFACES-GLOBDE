@@ -1,10 +1,18 @@
+const ROL_ADMINISTRADOR = 1;
+const ROL_BARBERO = 2;
+const ROL_RECEPCIONISTA = 3;
+const ROL_SUPERVISOR = 4;
+const ROL_GERENTE = 5;
+const ROL_CLIENTE = 6;
+
 const datosBase = {
   roles: [
-    { id_rol: 1, nombre: "Administrador", descripcion: "Control total del sistema" },
-    { id_rol: 2, nombre: "Barbero", descripcion: "Gestiona citas y servicios" },
-    { id_rol: 3, nombre: "Recepcionista", descripcion: "Administra reservas" },
-    { id_rol: 4, nombre: "Supervisor", descripcion: "Supervisa operaciones" },
-    { id_rol: 5, nombre: "Gerente", descripcion: "Gestion del negocio" }
+    { id_rol: ROL_ADMINISTRADOR, nombre: "Administrador", descripcion: "Control total del sistema" },
+    { id_rol: ROL_BARBERO, nombre: "Barbero", descripcion: "Gestiona citas y servicios" },
+    { id_rol: ROL_RECEPCIONISTA, nombre: "Recepcionista", descripcion: "Administra reservas" },
+    { id_rol: ROL_SUPERVISOR, nombre: "Supervisor", descripcion: "Supervisa operaciones" },
+    { id_rol: ROL_GERENTE, nombre: "Gerente", descripcion: "Gestion del negocio" },
+    { id_rol: ROL_CLIENTE, nombre: "Cliente", descripcion: "Usuario que agenda citas" }
   ],
   catalogo_cortes: [
     { id_corte: 1, nombre: "Fade bajo", descripcion: "Degradado suave y elegante", imagen_url: "fade_bajo.jpg" },
@@ -17,18 +25,16 @@ const datosBase = {
     { id_corte: 8, nombre: "Barba perfilada", descripcion: "Diseno de barba", imagen_url: "barba.jpg" }
   ],
   usuarios: [
-    { id_usuario: 1, nombre: "Juan Felipe Canon", correo: "juan.canon@barbercontrol.com", contrasena: "JFcanon2026", telefono: "3004512387", id_rol: 1, fecha_creacion: "2026-03-08T16:45:14" },
-    { id_usuario: 2, nombre: "Carlos Mendez", correo: "carlos.mendez@barbercontrol.com", contrasena: "CarMend98", telefono: "3017854923", id_rol: 2, fecha_creacion: "2026-03-08T16:45:14" },
-    { id_usuario: 3, nombre: "Andres Salgado", correo: "andres.salgado@barbercontrol.com", contrasena: "SalgaBarb22", telefono: "3026481395", id_rol: 2, fecha_creacion: "2026-03-08T16:45:14" },
-    { id_usuario: 4, nombre: "Mateo Rivas", correo: "mateo.rivas@barbercontrol.com", contrasena: "MateoFade77", telefono: "3049825617", id_rol: 2, fecha_creacion: "2026-03-08T16:45:14" },
-    { id_usuario: 5, nombre: "Laura Pardo", correo: "laura.pardo@barbercontrol.com", contrasena: "RecepLP2024", telefono: "3057138426", id_rol: 3, fecha_creacion: "2026-03-08T16:45:14" }
-  ],
-  clientes: [
-    { id_cliente: 1, nombre: "Pedro Gomez", telefono: "3105481293", correo: "pedro.gomez01@gmail.com", fecha_registro: "2026-03-08T16:46:30", puntaje: 20 },
-    { id_cliente: 2, nombre: "Luis Martinez", telefono: "3118734921", correo: "luis.martinez02@gmail.com", fecha_registro: "2026-03-08T16:46:30", puntaje: 40 },
-    { id_cliente: 3, nombre: "Santiago Rojas", telefono: "3125498137", correo: "santiago.rojas03@gmail.com", fecha_registro: "2026-03-08T16:46:30", puntaje: 60 },
-    { id_cliente: 4, nombre: "Daniel Herrera", telefono: "3137849126", correo: "daniel.herrera04@gmail.com", fecha_registro: "2026-03-08T16:46:30", puntaje: 10 },
-    { id_cliente: 5, nombre: "Camilo Vargas", telefono: "3149012736", correo: "camilo.vargas05@gmail.com", fecha_registro: "2026-03-08T16:46:30", puntaje: 80 }
+    { id_usuario: 1, nombre: "Juan Felipe Canon", correo: "juan.canon@barbercontrol.com", contrasena: "JFcanon2026", telefono: "3004512387", id_rol: ROL_ADMINISTRADOR, fecha_creacion: "2026-03-08T16:45:14", fecha_registro: "2026-03-08T16:45:14", puntaje: 0 },
+    { id_usuario: 2, nombre: "Carlos Mendez", correo: "carlos.mendez@barbercontrol.com", contrasena: "CarMend98", telefono: "3017854923", id_rol: ROL_BARBERO, fecha_creacion: "2026-03-08T16:45:14", fecha_registro: "2026-03-08T16:45:14", puntaje: 0 },
+    { id_usuario: 3, nombre: "Andres Salgado", correo: "andres.salgado@barbercontrol.com", contrasena: "SalgaBarb22", telefono: "3026481395", id_rol: ROL_BARBERO, fecha_creacion: "2026-03-08T16:45:14", fecha_registro: "2026-03-08T16:45:14", puntaje: 0 },
+    { id_usuario: 4, nombre: "Mateo Rivas", correo: "mateo.rivas@barbercontrol.com", contrasena: "MateoFade77", telefono: "3049825617", id_rol: ROL_BARBERO, fecha_creacion: "2026-03-08T16:45:14", fecha_registro: "2026-03-08T16:45:14", puntaje: 0 },
+    { id_usuario: 5, nombre: "Laura Pardo", correo: "laura.pardo@barbercontrol.com", contrasena: "RecepLP2024", telefono: "3057138426", id_rol: ROL_RECEPCIONISTA, fecha_creacion: "2026-03-08T16:45:14", fecha_registro: "2026-03-08T16:45:14", puntaje: 0 },
+    { id_usuario: 6, nombre: "Pedro Gomez", correo: "pedro.gomez01@gmail.com", contrasena: "cliente_default", telefono: "3105481293", id_rol: ROL_CLIENTE, fecha_creacion: "2026-03-08T16:46:30", fecha_registro: "2026-03-08T16:46:30", puntaje: 20 },
+    { id_usuario: 7, nombre: "Luis Martinez", correo: "luis.martinez02@gmail.com", contrasena: "cliente_default", telefono: "3118734921", id_rol: ROL_CLIENTE, fecha_creacion: "2026-03-08T16:46:30", fecha_registro: "2026-03-08T16:46:30", puntaje: 40 },
+    { id_usuario: 8, nombre: "Santiago Rojas", correo: "santiago.rojas03@gmail.com", contrasena: "cliente_default", telefono: "3125498137", id_rol: ROL_CLIENTE, fecha_creacion: "2026-03-08T16:46:30", fecha_registro: "2026-03-08T16:46:30", puntaje: 60 },
+    { id_usuario: 9, nombre: "Daniel Herrera", correo: "daniel.herrera04@gmail.com", contrasena: "cliente_default", telefono: "3137849126", id_rol: ROL_CLIENTE, fecha_creacion: "2026-03-08T16:46:30", fecha_registro: "2026-03-08T16:46:30", puntaje: 10 },
+    { id_usuario: 10, nombre: "Camilo Vargas", correo: "camilo.vargas05@gmail.com", contrasena: "cliente_default", telefono: "3149012736", id_rol: ROL_CLIENTE, fecha_creacion: "2026-03-08T16:46:30", fecha_registro: "2026-03-08T16:46:30", puntaje: 80 }
   ],
   servicios: [
     { id_servicio: 1, nombre: "Corte clasico", descripcion: "Corte tradicional con maquina y tijera", precio: 20000, duracion_minutos: 30, id_corte: 3 },
@@ -59,52 +65,95 @@ function guardarDatos(clave, datos) {
   localStorage.setItem(clave, JSON.stringify(datos));
 }
 
-function normalizarDatos() {
-  const clientes = obtenerDatos("clientes").map((cliente, index) => ({
-    id_cliente: cliente.id_cliente || cliente.id || index + 1,
-    nombre: cliente.apellido ? `${cliente.nombre} ${cliente.apellido}`.trim() : cliente.nombre,
-    telefono: cliente.telefono || "",
-    correo: cliente.correo || "",
-    fecha_registro: cliente.fecha_registro || new Date().toISOString(),
-    puntaje: cliente.puntaje ?? 0
+function normalizarUsuarios(usuarios) {
+  return usuarios.map((usuario, index) => ({
+    id_usuario: Number(usuario.id_usuario || usuario.id || index + 1),
+    nombre: usuario.apellido ? `${usuario.nombre} ${usuario.apellido}`.trim() : (usuario.nombre || ""),
+    correo: usuario.correo || "",
+    contrasena: usuario.contrasena || usuario.password || "cliente_default",
+    telefono: usuario.telefono || "",
+    id_rol: Number(usuario.id_rol || usuario.rol_id || ROL_CLIENTE),
+    fecha_creacion: usuario.fecha_creacion || usuario.fecha_registro || new Date().toISOString(),
+    fecha_registro: usuario.fecha_registro || usuario.fecha_creacion || new Date().toISOString(),
+    puntaje: Number(usuario.puntaje ?? 0)
   }));
+}
 
-  const servicios = obtenerDatos("servicios").map((servicio, index) => ({
-    id_servicio: servicio.id_servicio || servicio.id || index + 1,
+function migrarClientesAUsuarios() {
+  const clientes = obtenerDatos("clientes");
+  if (!clientes.length) {
+    return;
+  }
+
+  const usuarios = obtenerDatos("usuarios");
+  const correoExistente = new Set(usuarios.map(usuario => usuario.correo));
+  const ultimoId = usuarios.reduce((maximo, usuario) => Math.max(maximo, Number(usuario.id_usuario) || 0), 0);
+
+  const clientesMigrados = clientes
+    .filter(cliente => cliente.correo && !correoExistente.has(cliente.correo))
+    .map((cliente, index) => ({
+      id_usuario: ultimoId + index + 1,
+      nombre: cliente.apellido ? `${cliente.nombre} ${cliente.apellido}`.trim() : (cliente.nombre || ""),
+      correo: cliente.correo || "",
+      contrasena: "cliente_default",
+      telefono: cliente.telefono || "",
+      id_rol: ROL_CLIENTE,
+      fecha_creacion: cliente.fecha_registro || new Date().toISOString(),
+      fecha_registro: cliente.fecha_registro || new Date().toISOString(),
+      puntaje: Number(cliente.puntaje ?? 0)
+    }));
+
+  if (clientesMigrados.length) {
+    guardarDatos("usuarios", [...usuarios, ...clientesMigrados]);
+  }
+
+  localStorage.removeItem("clientes");
+}
+
+function normalizarServicios(servicios) {
+  return servicios.map((servicio, index) => ({
+    id_servicio: Number(servicio.id_servicio || servicio.id || index + 1),
     nombre: servicio.nombre || "",
     descripcion: servicio.descripcion || "",
-    precio: servicio.precio || 0,
-    duracion_minutos: servicio.duracion_minutos || servicio.duracion || 0,
-    id_corte: servicio.id_corte ?? null
+    precio: Number(servicio.precio || 0),
+    duracion_minutos: Number(servicio.duracion_minutos || servicio.duracion || 0),
+    id_corte: servicio.id_corte == null || servicio.id_corte === "" ? null : Number(servicio.id_corte)
   }));
+}
 
-  const usuarios = obtenerDatos("usuarios").map((usuario, index) => ({
-    id_usuario: usuario.id_usuario || usuario.id || index + 1,
-    nombre: usuario.nombre || "",
-    correo: usuario.correo || "",
-    contrasena: usuario.contrasena || usuario.password || "",
-    telefono: usuario.telefono || "",
-    id_rol: usuario.id_rol || 2,
-    fecha_creacion: usuario.fecha_creacion || new Date().toISOString()
-  }));
-
-  const citas = obtenerDatos("citas").map((cita, index) => ({
-    id_cita: cita.id_cita || cita.id || index + 1,
-    id_cliente: cita.id_cliente || null,
-    id_usuario: cita.id_usuario || null,
-    id_servicio: cita.id_servicio || null,
-    cliente: cita.cliente || "",
-    barbero: cita.barbero || "",
-    servicio: cita.servicio || "",
+function normalizarCitas(citas) {
+  return citas.map((cita, index) => ({
+    id_cita: Number(cita.id_cita || cita.id || index + 1),
+    id_cliente: Number(cita.id_cliente || cita.cliente_id || 0) || null,
+    id_barbero: Number(cita.id_barbero || cita.id_usuario || 0) || null,
+    id_servicio: Number(cita.id_servicio || 0) || null,
+    servicio_ids: Array.isArray(cita.servicio_ids)
+      ? cita.servicio_ids.map(id => Number(id)).filter(Boolean)
+      : (cita.id_servicio ? [Number(cita.id_servicio)] : []),
+    servicio_personalizado: cita.servicio_personalizado || "",
+    total_precio: Number(cita.total_precio || 0),
+    total_duracion: Number(cita.total_duracion || 0),
     fecha: cita.fecha || "",
     hora: cita.hora || "",
     estado: cita.estado || "pendiente",
     observaciones: cita.observaciones || ""
   }));
+}
 
-  guardarDatos("clientes", clientes);
+function normalizarDatos() {
+  migrarClientesAUsuarios();
+
+  const rolesActuales = obtenerDatos("roles");
+  const roles = datosBase.roles.map(rolBase => {
+    return rolesActuales.find(rol => Number(rol.id_rol) === Number(rolBase.id_rol)) || rolBase;
+  });
+  const usuarios = normalizarUsuarios(obtenerDatos("usuarios"));
+  const servicios = normalizarServicios(obtenerDatos("servicios"));
+  const citas = normalizarCitas(obtenerDatos("citas"));
+
+  guardarDatos("roles", roles);
+  guardarDatos("usuarios", usuarios.length ? usuarios : datosBase.usuarios);
   guardarDatos("servicios", servicios);
-  guardarDatos("usuarios", usuarios);
   guardarDatos("citas", citas);
 }
 

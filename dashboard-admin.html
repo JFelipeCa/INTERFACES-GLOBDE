@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel administrativo</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+  <nav data-nav></nav>
+
+  <main class="container hero-shell">
+    <section class="dashboard-hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Vista administrativa</span>
+        <h1>Hola, <span id="adminNombre"></span></h1>
+        <p>Centraliza clientes, servicios, agenda y seguimiento operativo desde un panel mas util para gestion diaria.</p>
+      </div>
+      <div class="hero-deco">*</div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <strong id="totalClientes">0</strong>
+        <span>Clientes activos</span>
+      </article>
+      <article class="stat-card">
+        <strong id="totalPersonal">0</strong>
+        <span>Usuarios internos</span>
+      </article>
+      <article class="stat-card">
+        <strong id="totalCitas">0</strong>
+        <span>Citas registradas</span>
+      </article>
+      <article class="stat-card">
+        <strong id="totalServicios">0</strong>
+        <span>Servicios</span>
+      </article>
+    </section>
+
+    <section class="admin-dashboard-grid">
+      <article class="panel-card">
+        <div class="panel-title">
+          <div>
+            <h2>Actividad reciente</h2>
+            <p>Las ultimas citas creadas y su estado actual.</p>
+          </div>
+        </div>
+        <div id="actividadAdmin" class="activity-list"></div>
+      </article>
+
+      <div class="stack">
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Accesos rapidos</h2>
+              <p>Atajos a las tareas principales.</p>
+            </div>
+          </div>
+          <div class="actions-grid">
+            <a class="action-card" href="clientes.html">
+              <strong>Gestionar clientes</strong>
+              <span>Crear y consultar usuarios con rol cliente.</span>
+            </a>
+            <a class="action-card" href="citas.html">
+              <strong>Editar agenda</strong>
+              <span>Actualizar estado, fecha, hora o servicios de una cita.</span>
+            </a>
+            <a class="action-card" href="catalogo.html">
+              <strong>Servicios</strong>
+              <span>Administrar el catalogo comercial.</span>
+            </a>
+            <a class="action-card" href="perfil.html">
+              <strong>Mi perfil</strong>
+              <span>Revisar y actualizar tus datos de acceso.</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Resumen operativo</h2>
+              <p>Indicadores simples del momento.</p>
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <strong id="citasPendientes">0</strong>
+              <span>Citas pendientes</span>
+            </div>
+            <div class="summary-card">
+              <strong id="citasConfirmadas">0</strong>
+              <span>Citas confirmadas</span>
+            </div>
+            <div class="summary-card">
+              <strong id="servicioTop">-</strong>
+              <span>Servicio mas solicitado</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/dashboard-admin.js"></script>
+</body>
+</html>

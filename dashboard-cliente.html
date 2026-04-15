@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel cliente</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+  <nav data-nav></nav>
+
+  <main class="container cliente-main">
+    <section class="cliente-hero">
+      <div class="hero-texto">
+        <span class="hero-etiqueta">Vista cliente</span>
+        <h1>Tu estilo empieza aqui, <span id="clienteNombre"></span></h1>
+        <p class="hero-sub">Consulta tus citas, combina varios servicios en una sola reserva y manten tu perfil siempre al dia.</p>
+      </div>
+      <div class="hero-deco">*</div>
+    </section>
+
+    <section class="seccion">
+      <div class="stats-grid">
+        <article class="stat-card">
+          <strong id="clientePuntaje">0</strong>
+          <span>Puntaje acumulado</span>
+        </article>
+        <article class="stat-card">
+          <strong id="clienteCitas">0</strong>
+          <span>Citas activas</span>
+        </article>
+        <article class="stat-card">
+          <strong id="clienteServicios">0</strong>
+          <span>Servicios disponibles</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="stack">
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Catalogo destacado</h2>
+              <p>Selecciona uno o varios servicios para construir una cita personalizada.</p>
+            </div>
+          </div>
+          <div id="catalogoCliente" class="catalogo-grid"></div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Agendar experiencia</h2>
+              <p>Combina varios servicios en una sola reserva.</p>
+            </div>
+          </div>
+
+          <form class="form-agendar" onsubmit="return false;">
+            <div class="form-group full-width">
+              <label>Servicios</label>
+              <div id="serviciosSeleccionables" class="checkbox-grid"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Barbero</label>
+              <select id="clienteBarbero"></select>
+            </div>
+
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" id="clienteFecha">
+            </div>
+
+            <div class="form-group">
+              <label>Hora</label>
+              <input type="time" id="clienteHora">
+            </div>
+
+            <div class="form-group full-width">
+              <label>Observaciones</label>
+              <textarea id="clienteObservaciones" placeholder="Cuentanos si quieres combinar corte, barba u otra preferencia."></textarea>
+            </div>
+
+            <div id="resumenSeleccion" class="resumen-seleccion full-width">
+              <strong>Sin servicios seleccionados.</strong>
+            </div>
+
+            <button class="btn-agendar" type="button" onclick="agendarCitaCliente()">Solicitar cita</button>
+            <p id="mensajeCita"></p>
+          </form>
+        </article>
+      </section>
+
+      <section class="stack">
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Proximas citas</h2>
+              <p>Resumen rapido de tus reservas mas recientes.</p>
+            </div>
+          </div>
+          <ul id="citasClientePreview" class="lista-mis-citas"></ul>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-title">
+            <div>
+              <h2>Tu perfil</h2>
+              <p>Acceso rapido a tus datos.</p>
+            </div>
+          </div>
+          <div class="profile-highlights">
+            <div class="summary-card">
+              <strong id="clienteCorreo"></strong>
+              <span>Correo registrado</span>
+            </div>
+            <div class="summary-card">
+              <strong id="clienteTelefono"></strong>
+              <span>Telefono</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/dashboard-cliente.js"></script>
+</body>
+</html>

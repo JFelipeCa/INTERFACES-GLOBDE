@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="css/globde.css">
+</head>
+<body>
+  <nav data-nav></nav>
+
+  <main class="container page-shell">
+    <section class="profile-hero">
+      <article class="profile-card">
+        <span class="eyebrow" id="perfilRolEtiqueta">Perfil</span>
+        <h2 id="perfilTitulo">Tu perfil</h2>
+        <p id="perfilDescripcion">Actualiza tus datos personales y manten tu cuenta al dia.</p>
+
+        <div class="profile-grid" style="margin-top: 24px;">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="perfilNombre" placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <label>Correo</label>
+            <input type="email" id="perfilCorreo" placeholder="Correo">
+          </div>
+          <div class="form-group">
+            <label>Telefono</label>
+            <input type="text" id="perfilTelefono" placeholder="Telefono">
+          </div>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" id="perfilContraseña" placeholder="Nueva contraseña">
+          </div>
+        </div>
+
+        <button type="button" style="margin-top: 20px;" onclick="guardarPerfil()">Guardar cambios</button>
+        <p id="mensajePerfil"></p>
+      </article>
+
+      <article class="profile-card">
+        <h2>Resumen</h2>
+        <p>Informacion principal de tu cuenta y beneficios actuales.</p>
+
+        <ul class="profile-list" style="margin-top: 22px;">
+          <li>
+            <strong>Rol</strong>
+            <span id="perfilRol"></span>
+          </li>
+          <li>
+            <strong>Puntaje</strong>
+            <span id="perfilPuntaje">0</span>
+          </li>
+          <li>
+            <strong>Fecha de registro</strong>
+            <span id="perfilRegistro"></span>
+          </li>
+          <li>
+            <strong>ID de usuario</strong>
+            <span id="perfilId"></span>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/globde.js"></script>
+  <script src="js/perfil.js"></script>
+</body>
+</html>

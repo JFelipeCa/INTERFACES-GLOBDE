@@ -6,30 +6,33 @@
   <link rel="stylesheet" href="css/globde.css">
 </head>
 <body>
+  <nav data-nav></nav>
 
-  <nav>
-    <h2>GLOBDE</h2>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="citas.html">Citas</a></li>
-      <li><a href="catalogo.html">Catalogo</a></li>
-      <button onclick="logout()">Cerrar sesion</button>
-    </ul>
-  </nav>
+  <div class="container page-shell">
+    <div class="page-heading">
+      <h1>Gestion de clientes</h1>
+      <p>Desde aqui el personal puede crear y consultar usuarios con rol cliente.</p>
+    </div>
 
-  <div class="container">
-    <h1>Clientes</h1>
+    <div class="form-grid">
+      <input type="text" id="nombre" placeholder="Nombre completo">
+      <input type="number" id="telefono" placeholder="Telefono" inputmode="numeric">
+      <input type="email" id="correo" placeholder="Correo">
+      <input type="password" id="contraseña" placeholder="Contraseña temporal">
+    </div>
 
-    <input type="text" id="nombre" placeholder="Nombre completo">
-    <input type="number" id="telefono" placeholder="Telefono" inputmode="numeric">
-    <input type="email" id="correo" placeholder="Correo">
-    <button onclick="agregarCliente()">Agregar</button>
+    <button type="button" onclick="agregarCliente()">Agregar cliente</button>
     <ul id="listaClientes"></ul>
   </div>
 
   <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/globde.js"></script>
+  <script>
+    if (protegerRuta("admin")) {
+      construirMenu();
+    }
+  </script>
   <script src="js/clientes.js"></script>
 </body>
 </html>
